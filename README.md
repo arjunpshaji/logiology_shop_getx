@@ -1,0 +1,1 @@
+# logiology_shop_getx
