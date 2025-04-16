@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:logiology/app/routes/app_routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileController extends GetxController {
@@ -13,12 +14,18 @@ class ProfileController extends GetxController {
     super.onInit();
   }
 
-  void updateProfile(String newUsername, String newPassword) async {
-    username.value = newUsername;
-    password.value = newPassword;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('username', newUsername);
-    await prefs.setString('password', newPassword);
+  void updateProfile(String newUsername, String newPassword, String confirmPassword) async {
+    if (confirmPassword != newPassword) {
+      Get.snackbar("Error", "Passwords does not match");
+    } else {
+      username.value = newUsername;
+      password.value = newPassword;
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('username', newUsername);
+      await prefs.setString('password', newPassword);
+      Get.snackbar("Success", "Profile details updated");
+      Get.toNamed(AppRoutes.home);
+    }
   }
 
   Future<void> pickImage() async {
@@ -26,7 +33,11 @@ class ProfileController extends GetxController {
     if (picked != null) {
       imagePath.value = picked.path;
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('profileImage', picked.path);
+      await prefs.setString('profileImage', picked.path).then((value) {
+        if (value) {
+          Get.snackbar("Success", "Profile image updated");
+        }
+      });
     }
   }
 

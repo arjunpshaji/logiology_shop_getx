@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:logiology/theme/app_theme.dart';
 
 class CommonAppbar extends StatelessWidget {
@@ -10,6 +11,7 @@ class CommonAppbar extends StatelessWidget {
   final Widget? actionWidget;
   final EdgeInsets actionPadding;
   final double actionHeight;
+  final bool isNeedBackArrow;
 
   const CommonAppbar({
     super.key,
@@ -21,6 +23,7 @@ class CommonAppbar extends StatelessWidget {
     this.actionWidget,
     this.actionPadding = const EdgeInsets.only(top: 30.0, right: 10),
     this.actionHeight = 35,
+    this.isNeedBackArrow = false
   });
 
   @override
@@ -40,12 +43,13 @@ class CommonAppbar extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.max,
               children: [
+                if(isNeedBackArrow)
                 IconButton(
                   padding: const EdgeInsets.only(left: 5),
                   alignment: Alignment.centerLeft,
                   icon: Icon(Icons.arrow_back_ios_new, color: arrowColor ?? appColor(context).background),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Get.back();
                   },
                 ),
                 Text(
