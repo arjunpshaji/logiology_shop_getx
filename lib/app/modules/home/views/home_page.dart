@@ -61,7 +61,6 @@ class HomePage extends StatelessWidget {
                             return ProductTile(
                               product: product,
                               onTap: () {
-                                // Get.to(ProductDetailsPage(), arguments: product);
                                 Get.to(() => ProductDetailsPage(), arguments: product);
                               },
                             );

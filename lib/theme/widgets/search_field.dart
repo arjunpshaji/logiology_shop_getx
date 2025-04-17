@@ -1,33 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:logiology/theme/app_theme.dart';
 
-class SearchField extends StatefulWidget {
+class SearchField extends StatelessWidget {
   final String hint;
   final void Function(String)? onChanged;
-  final void Function()? onTap;
-  final bool isVisible;
   final TextEditingController? controller;
 
-  const SearchField({super.key, required this.hint, this.onChanged, this.onTap, this.isVisible = false, this.controller});
-
-  @override
-  _SearchFieldState createState() => _SearchFieldState();
-}
-
-class _SearchFieldState extends State<SearchField> {
-  late TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  const SearchField({super.key, required this.hint, this.onChanged, this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +14,10 @@ class _SearchFieldState extends State<SearchField> {
       height: 40,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(24), color: appColor(context).subText),
       child: TextField(
-        controller: widget.controller ?? _controller,
-        onChanged: widget.onChanged,
+        controller: controller,
+        onChanged: onChanged,
         decoration: InputDecoration(
-          hintText: widget.hint,
+          hintText: hint,
           hintStyle: TextStyle(fontSize: 12, color: appColor(context).primaryText?.withValues(alpha: 0.5)),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: appColor(context).background!, width: 0.5),

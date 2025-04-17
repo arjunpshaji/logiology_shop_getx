@@ -13,6 +13,7 @@ void openFilterDialog(BuildContext context) {
   final selectedTags = controller.activeTags.toList().obs;
 
   Get.defaultDialog(
+    backgroundColor:appColor(context).whiteColor,
     title: "Filter Products",
     titleStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
     contentPadding: EdgeInsets.all(16),
@@ -57,6 +58,7 @@ void openFilterDialog(BuildContext context) {
                   controller.tags.map((tag) {
                     return Obx(
                       () => FilterChip(
+                        backgroundColor: appColor(context).primary,
                         label: Text(tag),
                         selected: selectedTags.contains(tag),
                         onSelected: (selected) {

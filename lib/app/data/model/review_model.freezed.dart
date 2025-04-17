@@ -22,7 +22,7 @@ Review _$ReviewFromJson(Map<String, dynamic> json) {
 mixin _$Review {
   int get rating => throw _privateConstructorUsedError;
   String get comment => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
   String get reviewerName => throw _privateConstructorUsedError;
   String get reviewerEmail => throw _privateConstructorUsedError;
 
@@ -39,7 +39,7 @@ abstract class $ReviewCopyWith<$Res> {
   $Res call(
       {int rating,
       String comment,
-      DateTime date,
+      String date,
       String reviewerName,
       String reviewerEmail});
 }
@@ -75,7 +75,7 @@ class _$ReviewCopyWithImpl<$Res, $Val extends Review>
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       reviewerName: null == reviewerName
           ? _value.reviewerName
           : reviewerName // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$ReviewImplCopyWith<$Res> implements $ReviewCopyWith<$Res> {
   $Res call(
       {int rating,
       String comment,
-      DateTime date,
+      String date,
       String reviewerName,
       String reviewerEmail});
 }
@@ -132,7 +132,7 @@ class __$$ReviewImplCopyWithImpl<$Res>
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       reviewerName: null == reviewerName
           ? _value.reviewerName
           : reviewerName // ignore: cast_nullable_to_non_nullable
@@ -163,7 +163,7 @@ class _$ReviewImpl implements _Review {
   @override
   final String comment;
   @override
-  final DateTime date;
+  final String date;
   @override
   final String reviewerName;
   @override
@@ -211,7 +211,7 @@ abstract class _Review implements Review {
   const factory _Review(
       {required final int rating,
       required final String comment,
-      required final DateTime date,
+      required final String date,
       required final String reviewerName,
       required final String reviewerEmail}) = _$ReviewImpl;
 
@@ -222,7 +222,7 @@ abstract class _Review implements Review {
   @override
   String get comment;
   @override
-  DateTime get date;
+  String get date;
   @override
   String get reviewerName;
   @override

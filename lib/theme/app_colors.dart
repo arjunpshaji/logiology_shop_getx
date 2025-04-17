@@ -21,6 +21,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color? subText;
   final Color? errorText;
   final Color? buttonColor;
+  final Color? whiteColor;
 
   const AppColors({
     required this.background,
@@ -30,6 +31,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.subText,
     required this.errorText,
     required this.buttonColor,
+    required this.whiteColor,
   });
 
   @override
@@ -41,6 +43,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? subText,
     Color? errorText,
     Color? buttonColor,
+    Color? whiteColor,
   }) {
     return AppColors(
       background: background ?? this.background,
@@ -50,6 +53,7 @@ class AppColors extends ThemeExtension<AppColors> {
       subText: subText ?? this.subText,
       errorText: errorText ?? this.errorText,
       buttonColor: buttonColor ?? this.buttonColor,
+      whiteColor: whiteColor ?? this.whiteColor,
     );
   }
 
@@ -66,6 +70,7 @@ class AppColors extends ThemeExtension<AppColors> {
       subText: Color.lerp(subText, other.subText, t),
       errorText: Color.lerp(errorText, other.errorText, t),
       buttonColor: Color.lerp(buttonColor, other.buttonColor, t),
+      whiteColor: Color.lerp(whiteColor, other.whiteColor, t),
     );
   }
 }

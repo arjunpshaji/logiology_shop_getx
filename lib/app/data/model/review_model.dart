@@ -8,7 +8,7 @@ class Review with _$Review {
   const factory Review({
     required int rating,
     required String comment,
-    required DateTime date,
+    required String date,
     required String reviewerName,
     required String reviewerEmail,
   }) = _Review;

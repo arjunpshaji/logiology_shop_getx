@@ -14,6 +14,7 @@ ThemeData getAppTheme(BuildContext context) {
         subText: Color(0xff737373),
         errorText: Color(0xffdb292a),
         buttonColor: Color(0xff3E7B27),
+        whiteColor: Color(0xfffafafa)
       ),
     ],
     fontFamily: 'Manrope',

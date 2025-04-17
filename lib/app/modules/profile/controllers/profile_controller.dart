@@ -14,6 +14,7 @@ class ProfileController extends GetxController {
     super.onInit();
   }
 
+  // Update profile data
   void updateProfile(String newUsername, String newPassword, String confirmPassword) async {
     if (confirmPassword != newPassword) {
       Get.snackbar("Error", "Passwords does not match");
@@ -28,6 +29,7 @@ class ProfileController extends GetxController {
     }
   }
 
+  // Image picker function
   Future<void> pickImage() async {
     final picked = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (picked != null) {
@@ -41,6 +43,7 @@ class ProfileController extends GetxController {
     }
   }
 
+  // Load Profile data
   Future<void> loadProfile() async {
     final prefs = await SharedPreferences.getInstance();
     username.value = prefs.getString('username') ?? 'admin';

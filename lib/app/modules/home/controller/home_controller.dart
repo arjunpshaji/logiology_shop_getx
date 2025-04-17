@@ -7,7 +7,6 @@ class HomeController extends GetxController {
   var filteredProducts = <ProductModel>[].obs;
   RxBool isLoading = false.obs;
   var searchTerm = "".obs;
-
   var categories = <String>[].obs;
   var tags = <String>[].obs;
 
